@@ -4,12 +4,17 @@
  */
 package vistas;
 
+import bddd.Conexion;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import utilidades.Utilidades;
+
 /**
  *
  * @author jintae
  */
 public class InformeCuatro extends javax.swing.JDialog {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(InformeCuatro.class.getName());
 
     /**
@@ -18,6 +23,7 @@ public class InformeCuatro extends javax.swing.JDialog {
     public InformeCuatro(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        cargarTablaComunidades();
     }
 
     /**
@@ -37,6 +43,7 @@ public class InformeCuatro extends javax.swing.JDialog {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setName("Informe 4"); // NOI18N
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
@@ -181,4 +188,14 @@ public class InformeCuatro extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tablaInforme4;
     // End of variables declaration//GEN-END:variables
+
+    public void cargarTablaComunidades() {
+        Utilidades.formatHeader(tablaInforme4);
+        DefaultTableModel modelo = (DefaultTableModel) tablaInforme4.getModel();
+        modelo.setRowCount(0);
+        ArrayList<Object[]> datos = Conexion.librosPorComunidad();
+        for (Object[] fila : datos) {
+            modelo.addRow(fila);
+        }
+    }
 }

@@ -4,6 +4,11 @@
  */
 package vistas;
 
+import bddd.Conexion;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import utilidades.Utilidades;
+
 /**
  *
  * @author jintae
@@ -18,6 +23,7 @@ public class InformeCinco extends javax.swing.JDialog {
     public InformeCinco(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        cargarTablaCiudades();
     }
 
     /**
@@ -37,6 +43,7 @@ public class InformeCinco extends javax.swing.JDialog {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setName("Informe Cinco"); // NOI18N
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
@@ -98,7 +105,7 @@ public class InformeCinco extends javax.swing.JDialog {
 
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("INFORME UNO");
+        jLabel2.setText("INFORME CINCO");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -181,4 +188,14 @@ public class InformeCinco extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tablaInforme5;
     // End of variables declaration//GEN-END:variables
+
+    public void cargarTablaCiudades() {
+        Utilidades.formatHeader(tablaInforme5);
+    DefaultTableModel modelo = (DefaultTableModel) tablaInforme5.getModel();
+    modelo.setRowCount(0);
+    ArrayList<Object[]> datos = Conexion.topCincoCiudades(); 
+    for (Object[] fila : datos) {
+        modelo.addRow(fila);
+    }
+}
 }

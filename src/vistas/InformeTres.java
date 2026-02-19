@@ -4,12 +4,17 @@
  */
 package vistas;
 
+import bddd.Conexion;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import utilidades.Utilidades;
+
 /**
  *
  * @author jintae
  */
 public class InformeTres extends javax.swing.JDialog {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(InformeTres.class.getName());
 
     /**
@@ -18,6 +23,13 @@ public class InformeTres extends javax.swing.JDialog {
     public InformeTres(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        Utilidades.formatHeader(tablaInforme3);
+        comboVolumenes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboSeccionesActionPerformed(evt);
+                comboVolumenes.setSelectedIndex(0);
+            }
+        });
     }
 
     /**
@@ -38,6 +50,7 @@ public class InformeTres extends javax.swing.JDialog {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setName("Informe Tres"); // NOI18N
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
@@ -189,4 +202,22 @@ public class InformeTres extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tablaInforme3;
     // End of variables declaration//GEN-END:variables
+
+    private void comboSeccionesActionPerformed(java.awt.event.ActionEvent evt) {
+        String seleccionado = (String) comboVolumenes.getSelectedItem();
+
+        if (seleccionado != null && !seleccionado.equals("SELECCIONE")) {
+            int numSeccion = Integer.parseInt(seleccionado);
+            DefaultTableModel modelo = (DefaultTableModel) tablaInforme3.getModel();
+            modelo.setRowCount(0);
+
+            ArrayList<Object[]> datos = Conexion.stockPorSeccion(numSeccion);
+            int totalVolumenes = 0;
+
+            for (Object[] fila : datos) {
+                modelo.addRow(fila);
+                totalVolumenes += (int) fila[1];
+            }
+        }
+    }
 }

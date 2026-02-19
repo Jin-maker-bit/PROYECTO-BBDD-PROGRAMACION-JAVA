@@ -4,12 +4,17 @@
  */
 package vistas;
 
+import bddd.Conexion;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import utilidades.Utilidades;
+
 /**
  *
  * @author jintae
  */
 public class InformeUno extends javax.swing.JDialog {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(InformeUno.class.getName());
 
     /**
@@ -18,6 +23,7 @@ public class InformeUno extends javax.swing.JDialog {
     public InformeUno(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        cargarTablaEditoriales();
     }
 
     /**
@@ -37,6 +43,7 @@ public class InformeUno extends javax.swing.JDialog {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setName("Informe Uno"); // NOI18N
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
@@ -181,4 +188,16 @@ public class InformeUno extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tablaInfome1;
     // End of variables declaration//GEN-END:variables
+    
+   
+    public void cargarTablaEditoriales() {
+        Utilidades.formatHeader(tablaInfome1);
+        ArrayList<Object[]> datos = Conexion.topDiezEditoriales();
+        DefaultTableModel modelo = (DefaultTableModel) tablaInfome1.getModel();
+        modelo.setRowCount(0);
+
+        for (Object[] fila : datos) {
+            modelo.addRow(fila);
+        }
+    }
 }
