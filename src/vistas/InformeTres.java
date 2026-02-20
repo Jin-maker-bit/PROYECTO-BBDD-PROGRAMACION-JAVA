@@ -27,7 +27,6 @@ public class InformeTres extends javax.swing.JDialog {
         comboVolumenes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboSeccionesActionPerformed(evt);
-                comboVolumenes.setSelectedIndex(0);
             }
         });
     }
@@ -47,6 +46,7 @@ public class InformeTres extends javax.swing.JDialog {
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaInforme3 = new javax.swing.JTable();
         comboVolumenes = new javax.swing.JComboBox<>();
+        labelTotal = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -91,13 +91,23 @@ public class InformeTres extends javax.swing.JDialog {
 
         comboVolumenes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONE", "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
 
+        labelTotal.setBackground(new java.awt.Color(0, 0, 0));
+        labelTotal.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        labelTotal.setForeground(new java.awt.Color(255, 255, 255));
+        labelTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelTotal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        labelTotal.setName("labelTotal"); // NOI18N
+        labelTotal.setOpaque(true);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(34, 34, 34)
-                .addComponent(comboVolumenes, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(comboVolumenes, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 585, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -110,10 +120,15 @@ public class InformeTres extends javax.swing.JDialog {
                 .addContainerGap(40, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(32, 32, 32)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboVolumenes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(comboVolumenes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(labelTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(120, 120, 120))))
         );
 
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
@@ -200,6 +215,7 @@ public class InformeTres extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel labelTotal;
     private javax.swing.JTable tablaInforme3;
     // End of variables declaration//GEN-END:variables
 
@@ -218,6 +234,10 @@ public class InformeTres extends javax.swing.JDialog {
                 modelo.addRow(fila);
                 totalVolumenes += (int) fila[1];
             }
+            labelTotal.setText("TOTAL: " + totalVolumenes);
+
+        } else {
+            labelTotal.setText("TOTAL: 0");
         }
     }
 }

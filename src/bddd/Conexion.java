@@ -21,14 +21,14 @@ public class Conexion {
     public static Connection conn;
 
     public static void conectar() {
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:8889/ventaslibreria";
-            conn = DriverManager.getConnection(url, "root", "root");
-        } catch (ClassNotFoundException | SQLException ex) {
-            System.getLogger(Conexion.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
-        }
+    try {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        String url = "jdbc:mysql://195.35.53.72:3306/u812167471_grupo5";
+        conn = DriverManager.getConnection(url, "u812167471_grupo5", "2026-Grupo5");
+    } catch (ClassNotFoundException | SQLException ex) {
+        System.getLogger(Conexion.class.getName()).log(System.Logger.Level.ERROR, "¡Error al conectar a la base de datos!", ex);
     }
+}
 
     public static void cerrarConexion() {
         try {
