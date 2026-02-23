@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"bddd"},{"l":"proyecto_github_programacion"},{"l":"utilidades"},{"l":"vistas"}];updateSearchResults();
