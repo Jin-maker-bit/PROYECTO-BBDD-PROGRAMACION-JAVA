@@ -10,7 +10,9 @@ import javax.swing.table.DefaultTableModel;
 import utilidades.Utilidades;
 
 /**
- *
+ * Esta interfaz modal presenta un análisis comparativo de las 5 ciudades con 
+ * mayor volumen de edición. Es un informe de "Top Tier" diseñado para identificar 
+ * los núcleos geográficos de mayor actividad editorial en el sistema.
  * @author jintae
  */
 public class InformeCinco extends javax.swing.JDialog {
@@ -19,6 +21,8 @@ public class InformeCinco extends javax.swing.JDialog {
 
     /**
      * Creates new form InformeCinco
+     * @param parent
+     * @param modal
      */
     public InformeCinco(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -189,6 +193,10 @@ public class InformeCinco extends javax.swing.JDialog {
     private javax.swing.JTable tablaInforme5;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * Este método carga la tabla con las 5 ciudades donde más libros se han editado.
+     * Además, se añade unas utilidades donde editamos el diseño de las tablas.
+     */
     public void cargarTablaCiudades() {
         Utilidades.formatHeader(tablaInforme5);
     DefaultTableModel modelo = (DefaultTableModel) tablaInforme5.getModel();

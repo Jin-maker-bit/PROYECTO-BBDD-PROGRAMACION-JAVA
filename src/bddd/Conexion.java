@@ -13,13 +13,22 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * Esta clase se encarga de conectar el programa con la base de datos MySQL.
+ * Todos los métodos son estáticos, así que no hace falta crear un objeto.
  * @author jintae
  */
 public class Conexion {
 
+    /**
+     * Objeto de conexión que mantiene el canal abierto con el servidor.
+     */
     public static Connection conn;
 
+    /**
+     * Este método abre la puerta a la base de datos. Usamos el driver de MySQL
+     * y ponemos las credenciales para acceder al servidor, usuario y la
+     * contraseña.
+     */
     public static void conectar() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -30,6 +39,9 @@ public class Conexion {
         }
     }
 
+    /**
+     * Finaliza la conexión activa para liberar recursos en el servidor.
+     */
     public static void cerrarConexion() {
         try {
             if (conn != null && !conn.isClosed()) {
@@ -40,6 +52,15 @@ public class Conexion {
         }
     }
 
+    /**
+     * Este método devuelve 3 números importantes de la librería: 
+     * [0] = cantidad total de libros 
+     * [1] = suma de todo el stock 
+     * [2] = número total de ventas (tienda + online)
+     * @return
+     */
+    
+    // VENTANA PRINCIPAL
     public static int[] informes() {
         int[] resultados = new int[3];
         conectar();
@@ -67,6 +88,12 @@ public class Conexion {
         return resultados;
     }
 
+    /**
+     * Este método devuelve los 3 libros más vendidos en la tienda física
+     * @return
+     */
+    
+    // VENTANA PRINCIPAL
     public static ArrayList<Object[]> topTresLibros() {
         String consulta = "SELECT l.titulo, COUNT(vt.idVenta) "
                 + "FROM libros l "
@@ -95,6 +122,12 @@ public class Conexion {
         return listaDatos;
     }
 
+    /**
+     * Este método devuelve los 3 libros más vendidos por internet (online)
+     * @return
+     */
+    
+    // VENTANA PRINCIPAL
     public static ArrayList<Object[]> topTresLibrosOnline() {
         String consulta = "SELECT l.titulo, COUNT(vo.idVenta) "
                 + "FROM libros l "
@@ -123,6 +156,12 @@ public class Conexion {
         return listaDatos;
     }
 
+    /**
+     * Este método devuelve las 10 editoriales que tienen más libros.
+     * @return
+     */
+    
+    // VENTANA INFORME UNO
     public static ArrayList<Object[]> topDiezEditoriales() {
         String consulta = "SELECT e.nombre, COUNT(l.idLibro) "
                 + "FROM editoriales e "
@@ -151,6 +190,12 @@ public class Conexion {
         return listaDatos;
     }
 
+    /**
+     * Este método devuelve cuánto dinero ha vendido cada vendedor que está activo.
+     * @return
+     */
+    
+    // VENTANA INFORME DOS
     public static ArrayList<Object[]> facturacionVendedoresActivos() {
         String consulta = "SELECT v.nombre, SUM(vt.precio), e.estado "
                 + "FROM vendedores v "
@@ -182,6 +227,12 @@ public class Conexion {
         return listaDatos;
     }
 
+    /**
+     * Este método devuelve los libros vendidos y en qué plataforma online se vendieron.
+     * @return
+     */
+    
+    // VENTANA INFORME DOS
     public static ArrayList<Object[]> obtenerPlataformas() {
 
         String sql = " SELECT p.nombre, SUM(vo.precio) "
@@ -207,6 +258,13 @@ public class Conexion {
         return lista;
     }
 
+    /**
+     * Este método devuelve el stock total de libros en una sección.
+     * @param seccion
+     * @return
+     */
+    
+    // VENTANA INFORME TRES
     public static ArrayList<Object[]> stockPorSeccion(int seccion) {
         String sql = "SELECT u.ubicacion, SUM(l.stock) "
                 + "FROM ubicacion u "
@@ -235,6 +293,12 @@ public class Conexion {
         return lista;
     }
 
+    /**
+     * Este método evuelve cuántos libros se editaron en cada comunidad autónoma.
+     * @return
+     */
+    
+    // VENTANA INFORME CUATRO
     public static ArrayList<Object[]> librosPorComunidad() {
         String sql = "SELECT le.ccaa, COUNT(l.idLibro) "
                 + "FROM lugar_edicion le "
@@ -259,6 +323,12 @@ public class Conexion {
         return lista;
     }
 
+    /**
+     * Devuelve las 5 ciudades donde más libros se editaron.
+     * @return
+     */
+    
+    // VENTANA INFORME CINCO
     public static ArrayList<Object[]> topCincoCiudades() {
         String sql = "SELECT le.lugar, COUNT(l.idLibro) "
                 + "FROM lugar_edicion le "

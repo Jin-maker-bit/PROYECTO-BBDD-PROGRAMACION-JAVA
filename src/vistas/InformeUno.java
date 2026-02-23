@@ -10,7 +10,9 @@ import javax.swing.table.DefaultTableModel;
 import utilidades.Utilidades;
 
 /**
- *
+ * Esta ventana modal presenta un ranking detallado de las entidades editoriales,
+ * permitiendo al usuario identificar cuáles tienen mayor presencia en el catálogo
+ * actual de la biblioteca.
  * @author jintae
  */
 public class InformeUno extends javax.swing.JDialog {
@@ -19,6 +21,8 @@ public class InformeUno extends javax.swing.JDialog {
 
     /**
      * Creates new form InformeUno
+     * @param parent
+     * @param modal
      */
     public InformeUno(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -189,7 +193,10 @@ public class InformeUno extends javax.swing.JDialog {
     private javax.swing.JTable tablaInfome1;
     // End of variables declaration//GEN-END:variables
     
-   
+    /**
+     * Este método carga la tabla de datos con el Top 10 de editoriales.
+     * También usamos las clase utilidadades para modificar el encabezado de la tabla.
+     */
     public void cargarTablaEditoriales() {
         Utilidades.formatHeader(tablaInfome1);
         ArrayList<Object[]> datos = Conexion.topDiezEditoriales();

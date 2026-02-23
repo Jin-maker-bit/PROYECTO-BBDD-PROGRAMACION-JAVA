@@ -7,7 +7,8 @@ package proyecto_github_programacion;
 import vistas.VentanaPrincipal;
 
 /**
- *
+ * Clase principal del sistema de nuestro proyecto, actua como punto inicial, en el inicializamos el programa para que muestre la ventana principal
+ * Cremos un objeto de tipo VentanaPrincipal, y la hacemos visible.
  * @author jintae
  */
 public class Proyecto_github_programacion {
