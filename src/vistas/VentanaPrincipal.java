@@ -12,8 +12,11 @@ import javax.swing.table.DefaultTableModel;
 import utilidades.Utilidades;
 
 /**
- * Esta es la ventana principal del programa.
- * Primera pantalla que ves al abrir la aplicación.
+ * Esta clase actúa como el centro de control y visualización de métricas en
+ * tiempo real. Proporciona acceso directo a los distintos informes del sistema
+ * y muestra un resumen del estado del inventario y el rendimiento de ventas. Es
+ * la primera ventana que se muestra al ejecutar el programa.
+ *
  * @author jintae
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
@@ -435,18 +438,30 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTable tabla1;
     private javax.swing.JTable tabla2;
     // End of variables declaration//GEN-END:variables
-    /*
-    * Carga los 3 números grandes en la parte superior de la ventana
-    */
+
+    /**
+     * Recupera y actualiza las métricas globales en la cabecera de la ventana,
+     * estos datos se muestran en una Label.
+     *
+     * @param lib
+     * @param vol
+     * @param ven
+     */
     public static void cargarDatosvp(JLabel lib, JLabel vol, JLabel ven) {
         int[] datosResumen = Conexion.informes();
         lib.setText(String.valueOf(datosResumen[0]));
         vol.setText(String.valueOf(datosResumen[1]));
         ven.setText(String.valueOf(datosResumen[2]));
     }
-    /*
-    * Llena la tabla de la izquierda con los 3 libros más vendidos en la TIENDA
-    */
+
+    /**
+     * Este método carga la tabla de "Top Ventas Físicas" con los datos de la
+     * base de datos. Con las utilidades, aplicamos un formato personalizado a
+     * la cabecera antes de insertar las 3 filas correspondientes a los libros
+     * más vendidos en tienda.
+     *
+     * @param tabla
+     */
     public static void cargarTablaTop(JTable tabla) {
         Utilidades.formatHeader(tabla);
         ArrayList<Object[]> datos = Conexion.topTresLibros();
@@ -456,9 +471,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             modelo.addRow(fila);
         }
     }
-    /*
-    * Llena la tabla de la derecha con los 3 libros más vendidos ONLINE.
-    */
+
+    /**
+     * Este método carga la tabla de "Top Ventas Online" con los datos de la
+     * base de datos. Con las utilidades, aplicamos un formato personalizado a
+     * la cabecera antes de insertar las 3 filas correspondientes a los libros
+     * más vendidos en tienda.
+     *
+     * @param tabla
+     */
     public static void cargarTablaTopOnline(JTable tabla) {
         Utilidades.formatHeader(tabla);
         ArrayList<Object[]> datos = Conexion.topTresLibrosOnline();

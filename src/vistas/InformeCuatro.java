@@ -10,6 +10,10 @@ import javax.swing.table.DefaultTableModel;
 import utilidades.Utilidades;
 
 /**
+ * Esta ventana modal proporciona una métrica estadística sobre la procedencia
+ * de las ediciones, vinculando cada Comunidad Autónoma con el volumen total de
+ * libros producidos en ella. Es una herramienta clave para el análisis de
+ * mercado y distribución regional.
  *
  * @author jintae
  */
@@ -18,7 +22,8 @@ public class InformeCuatro extends javax.swing.JDialog {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(InformeCuatro.class.getName());
 
     /**
-     * Constructor de la ventana Informe Cuatro.
+     * Creates new form InformeCuatro
+     *
      * @param parent
      * @param modal
      */
@@ -192,8 +197,8 @@ public class InformeCuatro extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
 
     /**
-     * Carga la tabla con las comunidades autónomas y la cantidad de libros
-     * que se han editado en cada una.
+     * Este método carga la tabla con las comunidades autónomas y la cantidad de
+     * libros que se han editado en cada una.
      */
     public void cargarTablaComunidades() {
         Utilidades.formatHeader(tablaInforme4);

@@ -14,31 +14,56 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableCellRenderer;
 
 /**
+ * Clase utilidades, dónde guardamos métodos los cuales pueden ser reutilizables
+ * una y otra vez.
  *
  * @author jintae
  */
 public class Utilidades {
 
+    /**
+     *
+     * @param campo
+     * @return
+     */
     public static boolean compruebaCampoVacio(JTextField campo) {
         return "".equals(campo.getText());
 
     }
 
+    /**
+     *
+     * @param campo
+     */
     public static void lanzaAlertaVacio(JTextField campo) {
         JOptionPane.showMessageDialog(null,
                 "El campo " + campo.getName() + " es obligatorio");
         campo.setBackground(Color.red);
     }
 
+    /**
+     *
+     * @param combo
+     * @return
+     */
     public static boolean compruebaComboNoSeleccionado(JComboBox combo) {
         return combo.getSelectedIndex() == 0;
     }
 
+    /**
+     *
+     * @param combo
+     */
     public static void lanzaAlertaCombo(JComboBox combo) {
         JOptionPane.showMessageDialog(null,
                 "Debe seleccionar un elemento en el desplegable " + combo.getName());
     }
 
+    /**
+     *
+     * @param campo
+     * @return
+     */
     public static boolean compruebaEntero(JTextField campo) {
         String numeroTecleado = campo.getText();
         int miNumero;
@@ -50,6 +75,10 @@ public class Utilidades {
         }
     }
 
+    /**
+     *
+     * @param campo
+     */
     public static void lanzaAlertaNumeroNoValido(JTextField campo) {
         JOptionPane.showMessageDialog(null, "El campo " + campo.getName() + " debe ser númerico");
         campo.setBackground(Color.red);
@@ -57,15 +86,29 @@ public class Utilidades {
 
     static String patronDNI = "^[0-9]{8}[A-Za-z]$";
 
+    /**
+     *
+     * @param campo
+     * @return
+     */
     public static boolean compruebaDNI(JTextField campo) {
         return campo.getText().matches(patronDNI);
     }
 
+    /**
+     *
+     * @param campo
+     */
     public static void lanzaAlertaFormatoDNI(JTextField campo) {
         JOptionPane.showMessageDialog(null, "El formato DNI es invalido");
         campo.setBackground(Color.red);
     }
 
+    /**
+     *
+     * @param campo
+     * @return
+     */
     public static boolean compruebaTelefonoValido(JTextField campo) {
         String telefono = campo.getText().trim();
         if (telefono.startsWith("-")) {
@@ -76,12 +119,21 @@ public class Utilidades {
         return valido;
     }
 
+    /**
+     *
+     * @param campo
+     */
     public static void lanzaAlertaTelefonoNoValido(JTextField campo) {
         JOptionPane.showMessageDialog(null, "Formato de teléfono no válido\n");
         campo.setBackground(Color.red);
 
     }
 
+    /**
+     *
+     * @param campo
+     * @return
+     */
     public static boolean compruebaEmailValido(JTextField campo) {
         String email = campo.getText().trim().toLowerCase();
 
@@ -94,12 +146,21 @@ public class Utilidades {
         return valido;
     }
 
+    /**
+     *
+     * @param campo
+     */
     public static void lanzaAlertaEmailNoValido(JTextField campo) {
         JOptionPane.showMessageDialog(null,
                 "Formato de email no válido");
         campo.setBackground(Color.red);
     }
 
+    /**
+     *
+     * @param campo
+     * @return
+     */
     public static boolean compruebaDouble(JTextField campo) {
         String numeroTecleado = campo.getText().trim();
         try {
@@ -110,6 +171,10 @@ public class Utilidades {
         }
     }
 
+    /**
+     *
+     * @param campo
+     */
     public static void lanzaAlertaDoubleNoValido(JTextField campo) {
         JOptionPane.showMessageDialog(
                 null,
@@ -117,7 +182,11 @@ public class Utilidades {
         );
         campo.setBackground(Color.red);
     }
-    
+
+    /**
+     *
+     * @param tabla
+     */
     public static void formatHeader(JTable tabla) {
         tabla.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 15));
         DefaultTableCellRenderer renderer = (DefaultTableCellRenderer) tabla.getTableHeader().getDefaultRenderer();
