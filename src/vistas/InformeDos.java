@@ -52,7 +52,7 @@ public class InformeDos extends javax.swing.JDialog {
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
-        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 102));
 
         tablaPlataformas.setBackground(new java.awt.Color(204, 204, 204));
         tablaPlataformas.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
