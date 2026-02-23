@@ -10,9 +10,11 @@ import javax.swing.table.DefaultTableModel;
 import utilidades.Utilidades;
 
 /**
- * Esta interfaz modal permite consultar de forma dinámica la distribución de volúmenes
- * dentro de las distintas secciones de la biblioteca. Proporciona un cálculo en tiempo
- * real del total de existencias según la categoría seleccionada.
+ * Esta interfaz modal permite consultar de forma dinámica la distribución de
+ * volúmenes dentro de las distintas secciones de la biblioteca. Proporciona un
+ * cálculo en tiempo real del total de existencias según la categoría
+ * seleccionada.
+ *
  * @author jintae
  */
 public class InformeTres extends javax.swing.JDialog {
@@ -21,6 +23,7 @@ public class InformeTres extends javax.swing.JDialog {
 
     /**
      * Creates new form InformeTres
+     *
      * @param parent
      * @param modal
      */
@@ -224,11 +227,11 @@ public class InformeTres extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
 
     /**
-    * Este método se ejecuta cuando eliges una sección en el combo box.
-    * Carga la tabla con el stock de esa sección.
-    * Calcula el total de volúmenes y lo muestra en la etiqueta amarilla.
-    * Si eliges "SELECCIONE" pone el total a 0.
-    */
+     * Este método se ejecuta cuando eliges una sección en el combo box. Carga
+     * la tabla con el stock de esa sección. Calcula el total de volúmenes y lo
+     * muestra en la etiqueta amarilla. Si eliges "SELECCIONE" pone el total a
+     * 0.
+     */
     private void comboSeccionesActionPerformed(java.awt.event.ActionEvent evt) {
         String seleccionado = (String) comboVolumenes.getSelectedItem();
 

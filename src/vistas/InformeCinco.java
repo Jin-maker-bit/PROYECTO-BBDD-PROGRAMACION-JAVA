@@ -10,17 +10,20 @@ import javax.swing.table.DefaultTableModel;
 import utilidades.Utilidades;
 
 /**
- * Esta interfaz modal presenta un análisis comparativo de las 5 ciudades con 
- * mayor volumen de edición. Es un informe de "Top Tier" diseñado para identificar 
- * los núcleos geográficos de mayor actividad editorial en el sistema.
+ * Esta interfaz modal presenta un análisis comparativo de las 5 ciudades con
+ * mayor volumen de edición. Es un informe de "Top Tier" diseñado para
+ * identificar los núcleos geográficos de mayor actividad editorial en el
+ * sistema.
+ *
  * @author jintae
  */
 public class InformeCinco extends javax.swing.JDialog {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(InformeCinco.class.getName());
 
     /**
      * Creates new form InformeCinco
+     *
      * @param parent
      * @param modal
      */
@@ -194,16 +197,17 @@ public class InformeCinco extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
 
     /**
-     * Este método carga la tabla con las 5 ciudades donde más libros se han editado.
-     * Además, se añade unas utilidades donde editamos el diseño de las tablas.
+     * Este método carga la tabla con las 5 ciudades donde más libros se han
+     * editado. Además, se añade unas utilidades donde editamos el diseño de las
+     * tablas.
      */
     public void cargarTablaCiudades() {
         Utilidades.formatHeader(tablaInforme5);
-    DefaultTableModel modelo = (DefaultTableModel) tablaInforme5.getModel();
-    modelo.setRowCount(0);
-    ArrayList<Object[]> datos = Conexion.topCincoCiudades(); 
-    for (Object[] fila : datos) {
-        modelo.addRow(fila);
+        DefaultTableModel modelo = (DefaultTableModel) tablaInforme5.getModel();
+        modelo.setRowCount(0);
+        ArrayList<Object[]> datos = Conexion.topCincoCiudades();
+        for (Object[] fila : datos) {
+            modelo.addRow(fila);
+        }
     }
-}
 }

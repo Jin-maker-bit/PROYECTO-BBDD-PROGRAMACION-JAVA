@@ -12,10 +12,11 @@ import javax.swing.table.DefaultTableModel;
 import utilidades.Utilidades;
 
 /**
- * Esta clase actúa como el centro de control y visualización de métricas en tiempo real.
- * Proporciona acceso directo a los distintos informes del sistema y muestra un resumen 
- * del estado del inventario y el rendimiento de ventas.
- * Es la primera ventana que se muestra al ejecutar el programa.
+ * Esta clase actúa como el centro de control y visualización de métricas en
+ * tiempo real. Proporciona acceso directo a los distintos informes del sistema
+ * y muestra un resumen del estado del inventario y el rendimiento de ventas. Es
+ * la primera ventana que se muestra al ejecutar el programa.
+ *
  * @author jintae
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
@@ -424,7 +425,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     /**
-     * Recupera y actualiza las métricas globales en la cabecera de la ventana, estos datos se muestran en una Label. 
+     * Recupera y actualiza las métricas globales en la cabecera de la ventana,
+     * estos datos se muestran en una Label.
+     *
      * @param lib
      * @param vol
      * @param ven
@@ -437,9 +440,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     /**
-     * Este método carga la tabla de "Top Ventas Físicas" con los datos de la base de datos.
-     * Con las utilidades, aplicamos un formato personalizado a la cabecera antes de insertar las 
-     * 3 filas correspondientes a los libros más vendidos en tienda.
+     * Este método carga la tabla de "Top Ventas Físicas" con los datos de la
+     * base de datos. Con las utilidades, aplicamos un formato personalizado a
+     * la cabecera antes de insertar las 3 filas correspondientes a los libros
+     * más vendidos en tienda.
+     *
      * @param tabla
      */
     public static void cargarTablaTop(JTable tabla) {
@@ -453,9 +458,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     /**
-     * Este método carga la tabla de "Top Ventas Online" con los datos de la base de datos.
-     * Con las utilidades, aplicamos un formato personalizado a la cabecera antes de insertar las 
-     * 3 filas correspondientes a los libros más vendidos en tienda.
+     * Este método carga la tabla de "Top Ventas Online" con los datos de la
+     * base de datos. Con las utilidades, aplicamos un formato personalizado a
+     * la cabecera antes de insertar las 3 filas correspondientes a los libros
+     * más vendidos en tienda.
+     *
      * @param tabla
      */
     public static void cargarTablaTopOnline(JTable tabla) {

@@ -10,9 +10,11 @@ import javax.swing.table.DefaultTableModel;
 import utilidades.Utilidades;
 
 /**
- * Esta ventana modal consolida la información económica del sistema, permitiendo
- * visualizar el rendimiento de los vendedores activos, viendo la facturación de cada uno de ellos y la efectividad de las
- * plataformas de venta en una sola interfaz.
+ * Esta ventana modal consolida la información económica del sistema,
+ * permitiendo visualizar el rendimiento de los vendedores activos, viendo la
+ * facturación de cada uno de ellos y la efectividad de las plataformas de venta
+ * en una sola interfaz.
+ *
  * @author jintae
  */
 public class InformeDos extends javax.swing.JDialog {
@@ -21,6 +23,7 @@ public class InformeDos extends javax.swing.JDialog {
 
     /**
      * Creates new form InformeDos
+     *
      * @param parent
      * @param modal
      */
@@ -239,7 +242,8 @@ public class InformeDos extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
 
     /**
-     * Recupera y visualiza el rendimiento económico de los vendedores en activo.
+     * Recupera y visualiza el rendimiento económico de los vendedores en
+     * activo.
      */
     public void cargarTablaFacturacion() {
         Utilidades.formatHeader(tablaFacturacion);

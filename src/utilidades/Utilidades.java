@@ -14,7 +14,9 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableCellRenderer;
 
 /**
- * Clase utilidades, dónde guardamos métodos los cuales pueden ser reutilizables una y otra vez.
+ * Clase utilidades, dónde guardamos métodos los cuales pueden ser reutilizables
+ * una y otra vez.
+ *
  * @author jintae
  */
 public class Utilidades {
@@ -180,7 +182,7 @@ public class Utilidades {
         );
         campo.setBackground(Color.red);
     }
-    
+
     /**
      *
      * @param tabla
