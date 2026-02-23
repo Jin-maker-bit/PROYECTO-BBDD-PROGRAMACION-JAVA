@@ -12,7 +12,8 @@ import javax.swing.table.DefaultTableModel;
 import utilidades.Utilidades;
 
 /**
- *
+ * Esta es la ventana principal del programa.
+ * Primera pantalla que ves al abrir la aplicación.
  * @author jintae
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
@@ -344,28 +345,43 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    /* 
+     * Se ejecuta cuando haces clic en el botón "INFORME 1".
+     * Abre la ventana del primer informe.
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         InformeUno iu = new InformeUno(null, true);
         iu.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
-
+     /* 
+     * Se ejecuta cuando haces clic en el botón "INFORME 2".
+     * Abre la ventana del segundo informe.
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         InformeDos id = new InformeDos(null, true);
         id.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
-
+     /* 
+     * Se ejecuta cuando haces clic en el botón "INFORME 3".
+     * Abre la ventana del tercer informe.
+     */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         InformeTres it = new InformeTres(null, true);
         it.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
-
+     /* 
+     * Se ejecuta cuando haces clic en el botón "INFORME 4".
+     * Abre la ventana del cuarto informe.
+     */
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         InformeCuatro ic = new InformeCuatro(null, true);
         ic.setVisible(true);    // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
-
+     /* 
+     * Se ejecuta cuando haces clic en el botón "INFORME 5".
+     * Abre la ventana del quinto informe.
+     */
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         InformeCinco ici = new InformeCinco(null, true);
         ici.setVisible(true);// TODO add your handling code here:
@@ -419,14 +435,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTable tabla1;
     private javax.swing.JTable tabla2;
     // End of variables declaration//GEN-END:variables
-
+    /*
+    * Carga los 3 números grandes en la parte superior de la ventana
+    */
     public static void cargarDatosvp(JLabel lib, JLabel vol, JLabel ven) {
         int[] datosResumen = Conexion.informes();
         lib.setText(String.valueOf(datosResumen[0]));
         vol.setText(String.valueOf(datosResumen[1]));
         ven.setText(String.valueOf(datosResumen[2]));
     }
-
+    /*
+    * Llena la tabla de la izquierda con los 3 libros más vendidos en la TIENDA
+    */
     public static void cargarTablaTop(JTable tabla) {
         Utilidades.formatHeader(tabla);
         ArrayList<Object[]> datos = Conexion.topTresLibros();
@@ -436,7 +456,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             modelo.addRow(fila);
         }
     }
-
+    /*
+    * Llena la tabla de la derecha con los 3 libros más vendidos ONLINE.
+    */
     public static void cargarTablaTopOnline(JTable tabla) {
         Utilidades.formatHeader(tabla);
         ArrayList<Object[]> datos = Conexion.topTresLibrosOnline();

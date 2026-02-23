@@ -10,7 +10,7 @@ import javax.swing.table.DefaultTableModel;
 import utilidades.Utilidades;
 
 /**
- *
+ * 
  * @author jintae
  */
 public class InformeUno extends javax.swing.JDialog {
@@ -18,7 +18,9 @@ public class InformeUno extends javax.swing.JDialog {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(InformeUno.class.getName());
 
     /**
-     * Creates new form InformeUno
+     * Constructor de la ventana Informe Uno.
+     * @param parent
+     * @param modal
      */
     public InformeUno(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -189,7 +191,9 @@ public class InformeUno extends javax.swing.JDialog {
     private javax.swing.JTable tablaInfome1;
     // End of variables declaration//GEN-END:variables
     
-   
+    /**
+     * Carga la tabla con las 10 editoriales que tienen más libros.
+     */
     public void cargarTablaEditoriales() {
         Utilidades.formatHeader(tablaInfome1);
         ArrayList<Object[]> datos = Conexion.topDiezEditoriales();

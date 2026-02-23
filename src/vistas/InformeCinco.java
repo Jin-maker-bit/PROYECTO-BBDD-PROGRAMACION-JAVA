@@ -18,7 +18,9 @@ public class InformeCinco extends javax.swing.JDialog {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(InformeCinco.class.getName());
 
     /**
-     * Creates new form InformeCinco
+     * Constructor de la ventana Informe Cinco.
+     * @param parent
+     * @param modal
      */
     public InformeCinco(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -189,6 +191,9 @@ public class InformeCinco extends javax.swing.JDialog {
     private javax.swing.JTable tablaInforme5;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * Carga la tabla con las 5 ciudades donde más libros se han editado.
+     */
     public void cargarTablaCiudades() {
         Utilidades.formatHeader(tablaInforme5);
     DefaultTableModel modelo = (DefaultTableModel) tablaInforme5.getModel();

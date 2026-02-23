@@ -18,7 +18,9 @@ public class InformeCuatro extends javax.swing.JDialog {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(InformeCuatro.class.getName());
 
     /**
-     * Creates new form InformeCuatro
+     * Constructor de la ventana Informe Cuatro.
+     * @param parent
+     * @param modal
      */
     public InformeCuatro(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -189,6 +191,10 @@ public class InformeCuatro extends javax.swing.JDialog {
     private javax.swing.JTable tablaInforme4;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * Carga la tabla con las comunidades autónomas y la cantidad de libros
+     * que se han editado en cada una.
+     */
     public void cargarTablaComunidades() {
         Utilidades.formatHeader(tablaInforme4);
         DefaultTableModel modelo = (DefaultTableModel) tablaInforme4.getModel();

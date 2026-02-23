@@ -18,7 +18,9 @@ public class InformeDos extends javax.swing.JDialog {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(InformeDos.class.getName());
 
     /**
-     * Creates new form InformeDos
+     * Constructor de la ventana Informe Dos.
+     * @param parent
+     * @param modal
      */
     public InformeDos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -234,6 +236,9 @@ public class InformeDos extends javax.swing.JDialog {
     private javax.swing.JTable tablaPlataformas;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * Carga la tabla de facturación de vendedores activos.
+     */
     public void cargarTablaFacturacion() {
         Utilidades.formatHeader(tablaFacturacion);
         ArrayList<Object[]> datos = Conexion.facturacionVendedoresActivos();
@@ -246,6 +251,9 @@ public class InformeDos extends javax.swing.JDialog {
         }
     }
 
+    /**
+     * Carga la tabla de plataformas.
+     */
     public void cargarTablaPlataformas() {
         Utilidades.formatHeader(tablaPlataformas);
         ArrayList<Object[]> datos = Conexion.obtenerPlataformas();
