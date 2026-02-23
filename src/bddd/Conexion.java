@@ -21,14 +21,14 @@ public class Conexion {
     public static Connection conn;
 
     public static void conectar() {
-    try {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        String url = "jdbc:mysql://195.35.53.72:3306/u812167471_grupo5";
-        conn = DriverManager.getConnection(url, "u812167471_grupo5", "2026-Grupo5");
-    } catch (ClassNotFoundException | SQLException ex) {
-        System.getLogger(Conexion.class.getName()).log(System.Logger.Level.ERROR, "¡Error al conectar a la base de datos!", ex);
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            String url = "jdbc:mysql://195.35.53.72:3306/u812167471_grupo5";
+            conn = DriverManager.getConnection(url, "u812167471_grupo5", "2026-Grupo5");
+        } catch (ClassNotFoundException | SQLException ex) {
+            System.getLogger(Conexion.class.getName()).log(System.Logger.Level.ERROR, "¡Error al conectar a la base de datos!", ex);
+        }
     }
-}
 
     public static void cerrarConexion() {
         try {
@@ -140,7 +140,7 @@ public class Conexion {
             while (rs.next()) {
                 Object[] fila = new Object[2];
                 fila[0] = rs.getString(1);
-                fila[1] = rs.getInt(2);   
+                fila[1] = rs.getInt(2);
                 listaDatos.add(fila);
             }
         } catch (SQLException e) {
@@ -184,11 +184,11 @@ public class Conexion {
 
     public static ArrayList<Object[]> obtenerPlataformas() {
 
-        String sql = "SELECT l.titulo, p.nombre "
-                + "FROM plataformas p "
-                + "JOIN ventas_online vo ON p.idPlataforma = vo.idPlataforma "
-                + "JOIN libros l ON vo.idLibro = l.idLibro "
-                + "ORDER BY p.nombre ASC";
+        String sql = " SELECT p.nombre, SUM(vo.precio) "
+                + " FROM plataformas p "
+                + " JOIN ventas_online vo ON p.idPlataforma = vo.idPlataforma "
+                + " GROUP BY p.idPlataforma, p.nombre "
+                + " ORDER BY SUM(vo.precio)";
 
         ArrayList<Object[]> lista = new ArrayList<>();
         conectar();
