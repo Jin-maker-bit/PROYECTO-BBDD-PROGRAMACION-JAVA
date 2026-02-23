@@ -348,28 +348,43 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    /* 
+     * Se ejecuta cuando haces clic en el botón "INFORME 1".
+     * Abre la ventana del primer informe.
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         InformeUno iu = new InformeUno(null, true);
         iu.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
-
+     /* 
+     * Se ejecuta cuando haces clic en el botón "INFORME 2".
+     * Abre la ventana del segundo informe.
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         InformeDos id = new InformeDos(null, true);
         id.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
-
+     /* 
+     * Se ejecuta cuando haces clic en el botón "INFORME 3".
+     * Abre la ventana del tercer informe.
+     */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         InformeTres it = new InformeTres(null, true);
         it.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
-
+     /* 
+     * Se ejecuta cuando haces clic en el botón "INFORME 4".
+     * Abre la ventana del cuarto informe.
+     */
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         InformeCuatro ic = new InformeCuatro(null, true);
         ic.setVisible(true);    // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
-
+     /* 
+     * Se ejecuta cuando haces clic en el botón "INFORME 5".
+     * Abre la ventana del quinto informe.
+     */
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         InformeCinco ici = new InformeCinco(null, true);
         ici.setVisible(true);// TODO add your handling code here:

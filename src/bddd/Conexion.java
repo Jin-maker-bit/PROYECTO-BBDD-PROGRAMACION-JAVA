@@ -24,6 +24,15 @@ public class Conexion {
      * Objeto de conexión que mantiene el canal abierto con el servidor.
      */
     public static Connection conn;
+    
+    /*
+     * Este método abre la conexión con la base de datos.
+     * Se conecta a localhost en el puerto 3307.
+     */
+
+    /**
+     *
+     */
 
     /**
      * Este método abre la puerta a la base de datos. Usamos el driver de MySQL
@@ -39,6 +48,11 @@ public class Conexion {
             System.getLogger(Conexion.class.getName()).log(System.Logger.Level.ERROR, "¡Error al conectar a la base de datos!", ex);
         }
     }
+    
+    /**
+     * Este método cierra la conexión con la base de datos.
+     * Solo la cierra si está abierta.
+     */
 
     /**
      * Finaliza la conexión activa para liberar recursos en el servidor.
@@ -89,6 +103,7 @@ public class Conexion {
     }
 
     /**
+
      * Este método devuelve los 3 libros más vendidos en la tienda física
      *
      * @return
@@ -123,11 +138,13 @@ public class Conexion {
     }
 
     /**
+
      * Este método devuelve los 3 libros más vendidos por internet (online)
      *
      * @return
      */
     // VENTANA PRINCIPAL
+
     public static ArrayList<Object[]> topTresLibrosOnline() {
         String consulta = "SELECT l.titulo, COUNT(vo.idVenta) "
                 + "FROM libros l "
